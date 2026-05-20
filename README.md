@@ -26,7 +26,7 @@ Step 2: Run locally (test)
 
 java -jar target/observability-app-0.0.1-SNAPSHOT.jar
 
-Test:
+Test locally:
 
 http://localhost:8080/
 http://localhost:8080/load
@@ -36,8 +36,23 @@ Then continue DevOps flow
 
 docker build -t springboot-monitoring .
 
-kubectl apply -f ../k8s/
+Prometheus Setup:
 
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install prometheus prometheus-community/prometheus
+
+Grafana Dashboard
+
+helm install grafana grafana/grafana
+
+Datadog Setup
+
+helm repo add datadog https://helm.datadoghq.com
+helm install datadog datadog/datadog \
+  --set datadog.apiKey=YOUR_API_KEY
+
+
+kubectl apply -f ../k8s/
 
 
 Use /load endpoint with:
