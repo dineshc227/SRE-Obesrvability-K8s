@@ -33,6 +33,7 @@ http://localhost:8080/load
 http://localhost:8080/actuator/prometheus
 
 Then continue DevOps flow
+Docker Command: 
 
 docker build -t springboot-monitoring .
 
@@ -49,9 +50,12 @@ helm install grafana grafana/grafana
 Datadog Setup
 
 helm repo add datadog https://helm.datadoghq.com
+
 helm install datadog datadog/datadog \
   --set datadog.apiKey=YOUR_API_KEY
 
+
+Kubernetes Command: 
 
 kubectl apply -f ../k8s/
 
