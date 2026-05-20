@@ -1,0 +1,5 @@
+datadog:
+  apm:
+    enabled: true
+  logs:
+    enabled: true
