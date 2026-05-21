@@ -1,3 +1,3 @@
-FROM openjdk:17
-COPY target/app.jar app.jar
+FROM eclipse-temurin:17-jdk
+COPY target/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
