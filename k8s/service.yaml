@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: springboot-service
 spec:
+  type: NodePort
   selector:
     app: springboot
   ports:
     - port: 80
-      targetPort: 8080
-  type: NodePort
+      targetPort: 8081
+      nodePort: 30080
