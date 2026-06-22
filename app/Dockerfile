@@ -3,7 +3,7 @@ FROM eclipse-temurin:17-jdk AS builder
 WORKDIR /app
 COPY . . 
 # Build the jar (assuming Maven)
-RUN /mvnw clean package -DskipTests
+RUN /mvn clean package -DskipTests
 
 # Stage 2: Run the application (Minimal image)
 FROM eclipse-temurin:17-jre
