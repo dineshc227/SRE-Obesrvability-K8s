@@ -35,3 +35,6 @@ jobs:
         
     - name: Check endpoint
       run: curl -v http://localhost:8081
+      
+    - name: run the request all endpoint
+      run: python3 req.py
