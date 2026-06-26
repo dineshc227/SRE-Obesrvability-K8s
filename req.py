@@ -2,7 +2,7 @@ import requests
 import time
 import random
 
-base_url = "YOUR-LOCAL-HOST-URL/api"
+base_url = "http://localhost:8081/api"
 
 # All endpoints
 endpoints = [
