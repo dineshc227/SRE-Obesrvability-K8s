@@ -2,7 +2,7 @@ import requests
 import time
 import random
 
-base_url = "https://dd1336f6ef8a-10-244-4-144-30080.papa.r.killercoda.com"
+base_url = "http://localhost:8081"
 
 # All endpoints
 endpoints = [
