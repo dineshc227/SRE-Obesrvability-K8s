@@ -21,15 +21,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+        
     - name: mvn clean package 
       run: mvn clean package
-    - name: run the application
-      run: java -jar target/observability-app-0.0.1-SNAPSHOT.jar
-    - name: check endpoint
-      run: curl http://localhost:8081
+      
+    - name: Run application in background
+      run: |
+        java -jar target/observability-app-0.0.1-SNAPSHOT.jar &
+        sleep 10 # Gives Spring Boot / Java time to fully initialize before curling
+        
+    - name: Check endpoint
+      run: curl -v http://localhost:8081/actuator/health # Added -v for detailed logs
