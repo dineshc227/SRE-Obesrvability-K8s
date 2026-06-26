@@ -40,5 +40,5 @@ jobs:
       run: python3 req.py
       
     - name: run the request all endpoint Status Code
-      run: python3 reqStaus.py
+      run: python3 reqStatus.py
       
