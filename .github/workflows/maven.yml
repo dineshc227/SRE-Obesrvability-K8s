@@ -27,8 +27,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+   
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
@@ -36,6 +35,6 @@ jobs:
     - name: mvn clean package 
       run: mvn clean package
     - name: run the application
-      run: java -jar --file observability-app-0.0.1-SNAPSHOT.jar
+      run: java -jar target/observability-app-0.0.1-SNAPSHOT.jar
     - name: check endpoint
       run: curl http://localhost:8081
