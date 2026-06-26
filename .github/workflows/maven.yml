@@ -1,10 +1,5 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+# For more information see: https://github.com
 
 name: Java CI with Maven
 
@@ -16,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -30,12 +24,14 @@ jobs:
         cache: maven
         
     - name: mvn clean package 
+      working-directory: ./app
       run: mvn clean package
       
     - name: Run application in background
+      working-directory: ./app
       run: |
         java -jar target/observability-app-0.0.1-SNAPSHOT.jar &
-        sleep 10 # Gives Spring Boot / Java time to fully initialize before curling
+        sleep 15
         
     - name: Check endpoint
-      run: curl -v http://localhost:8081/actuator/health # Added -v for detailed logs
+      run: curl -v http://localhost:8081
