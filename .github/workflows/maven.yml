@@ -31,15 +31,15 @@ jobs:
       working-directory: ./app
       run: |
         java -jar target/observability-app-0.0.1-SNAPSHOT.jar &
-        sleep 15
+        sleep 10
         
     - name: Check endpoint
       run: curl -v http://localhost:8081
       
     - name: run the request all endpoint
       run: python3 req.py
-
       
     - name: run the request all endpoint Status Code
+      working-directory: ./SRE-Obesrvability-K8s
       run: python3 reqStaus.py
       
