@@ -40,7 +40,7 @@ steps:
       echo "Installing Datadog Agent..."
 
       DD_AGENT_MAJOR_VERSION=7 \
-      DD_API_KEY=a9787c08b4139375c45a4f4bbf56f1f4 \
+      DD_API_KEY= add API KEY \
       DD_SITE="datadoghq.com" \
       bash -c "$(curl -L https://install.datadoghq.com/scripts/install_script_agent7.sh)"
 
